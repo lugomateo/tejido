@@ -27,9 +27,7 @@ export default function UploadGridButton({
   }
   return (
     <div className="upload-button">
-      <label htmlFor="upload-grid" className="upload-button__label">
-        Upload Pattern
-      </label>
+      <label className="upload-button__label">Upload Pattern</label>
       <input type="file" accept=".json" onChange={handleUpload} />
     </div>
   )

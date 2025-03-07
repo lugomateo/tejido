@@ -6,11 +6,15 @@ import ColumnsInput from "../components/ColumnsInput"
 import PatternInput from "../components/PatternInput"
 import UploadGridButton from "../components/UploadGridButton"
 import gridData from "../../default-grid.json"
+import TejidoPreview from "../components/TejidoPreview"
+import UploadImageButton from "../components/UploadImageButton"
 
 export default function Landing() {
   const [gridValues, setGridValues] = useState(gridData.values)
   const [columns, setColumns] = useState(gridData.columns)
   const [rows, setRows] = useState(gridData.rows)
+  const [firstImage, setFirstImage] = useState("")
+  const [secondImage, setSecondImage] = useState("")
 
   useEffect(() => {
     setGridValues((currentGridValues) => {
@@ -46,6 +50,10 @@ export default function Landing() {
             columns={columns}
             rows={rows}
           />
+          <UploadImageButton
+            setFirstImage={setFirstImage}
+            setSecondImage={setSecondImage}
+          />
           <DownloadGridButton
             grid={{
               values: gridValues,
@@ -66,6 +74,13 @@ export default function Landing() {
             columns,
             rows,
           }}
+        />
+        <TejidoPreview
+          firstImage={firstImage}
+          secondImage={secondImage}
+          gridValues={gridValues}
+          columns={columns}
+          rows={rows}
         />
       </div>
     </div>
