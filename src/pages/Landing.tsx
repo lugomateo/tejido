@@ -4,6 +4,7 @@ import RowsInput from "../components/RowsInput"
 import TejidoGrid from "../components/TejidoGrid"
 import ColumnsInput from "../components/ColumnsInput"
 import PatternInput from "../components/PatternInput"
+import UploadGridButton from "../components/UploadGridButton"
 import gridData from "../../default-grid.json"
 
 export default function Landing() {
@@ -51,6 +52,11 @@ export default function Landing() {
               columns,
               rows,
             }}
+          />
+          <UploadGridButton
+            setGridValues={setGridValues}
+            setColumns={setColumns}
+            setRows={setRows}
           />
         </div>
         <TejidoGrid

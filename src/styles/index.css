@@ -1,11 +1,12 @@
 @import "./app.css";
-@import "./download-button.css";
-@import "./tejido-grid.css";
 @import "./columns-input.css";
-@import "./rows-input.css";
+@import "./download-button.css";
+@import "./fonts.css";
 @import "./landing.css";
 @import "./pattern-input.css";
-@import "./fonts.css";
+@import "./rows-input.css";
+@import "./tejido-grid.css";
+@import "./upload-button.css";
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
