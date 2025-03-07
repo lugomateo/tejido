@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "Cactus Jack";
+  src: url("../assets/fonts/cactus jack/Cactus Jack.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Cactus Jack Alternate";
+  src: url("../assets/fonts/cactus jack/Cactus Jack Alternate.woff")
+    format("woff");
+}
