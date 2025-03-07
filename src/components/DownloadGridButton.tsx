@@ -37,7 +37,7 @@ export default function DownloadGridButton({
 
   return (
     <button onClick={handleDownload} className="download-button">
-      Download Grid
+      Download Pattern
     </button>
   )
 }
