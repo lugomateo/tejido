@@ -1,21 +1,16 @@
-# React + TypeScript + Vite
+# TEJIDO
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### A custom-built tool designed for Barcelona-based visual artist Alejandro Beltrán ([@blancodeorilla](https://www.instagram.com/blancodeorilla/))
 
-While this project uses React, Vite supports many popular JS frameworks. [See all the supported frameworks](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+Beltrán weaves strips of paper into intricate patterns—often checkerboard designs but also tribal motifs he learned while traveling in the Amazon. By interlacing threads from two distinct images, he merges separate visual narratives, creating a unique dialogue between them and forming an entirely new artistic language.
 
-## Deploy Your Own
+With Tejido, you can preview various patterns and image combinations, enabling seamless experimentation and precise control—perfect for refining designs and commissioned projects.
 
-Deploy your own Vite project with Vercel.
+![Example of Alejandro Beltrán's woven artwork](src/assets/images/example_1.png)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/vite-react&template=vite-react)
+Woven from these two separate images:
 
-_Live Example: https://vite-react-example.vercel.app_
-
-### Deploying From Your Terminal
-
-You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
-
-```shell
-$ vercel
-```
+<div style="display: flex; gap: 20px;">
+  <img src="src/assets/images/source_1.png" alt="first image" width="45%">
+  <img src="src/assets/images/source_2.png" alt="second image" width="45%">
+</div>
