@@ -11,6 +11,10 @@ export default function TejidoPreview({
   columns: number
   rows: number
 }) {
+  console.log(gridValues)
+  console.log(columns)
+  console.log(rows)
+
   return (
     <div className="tejido-preview">
       <div className="tejido-preview__image">
