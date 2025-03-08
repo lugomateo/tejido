@@ -24,3 +24,10 @@
   justify-content: start;
   align-items: start;
 }
+
+.tejido-preview-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}

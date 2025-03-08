@@ -8,6 +8,7 @@ import UploadGridButton from "../components/UploadGridButton"
 import gridData from "../../default-grid.json"
 import TejidoPreview from "../components/TejidoPreview"
 import UploadImageButton from "../components/UploadImageButton"
+import ImageControls from "../components/ImageControls"
 
 export default function Landing() {
   const [gridValues, setGridValues] = useState(gridData.values)
@@ -15,6 +16,11 @@ export default function Landing() {
   const [rows, setRows] = useState(gridData.rows)
   const [firstImage, setFirstImage] = useState("")
   const [secondImage, setSecondImage] = useState("")
+  const [firstImagePreview, setFirstImagePreview] = useState(true)
+  const [secondImagePreview, setSecondImagePreview] = useState(true)
+  const [firstImageWidth, setFirstImageWidth] = useState(512)
+  const [secondImageWidth, setSecondImageWidth] = useState(512)
+  const [squareSize, setSquareSize] = useState(16)
 
   useEffect(() => {
     setGridValues((currentGridValues) => {
@@ -47,6 +53,8 @@ export default function Landing() {
           <RowsInput rows={rows} setRows={setRows} />
           <PatternInput
             setGridValues={setGridValues}
+            squareSize={squareSize}
+            setSquareSize={setSquareSize}
             columns={columns}
             rows={rows}
           />
@@ -54,7 +62,20 @@ export default function Landing() {
             setFirstImage={setFirstImage}
             setSecondImage={setSecondImage}
           />
+          <ImageControls
+            firstImagePreview={firstImagePreview}
+            secondImagePreview={secondImagePreview}
+            setFirstImagePreview={setFirstImagePreview}
+            setSecondImagePreview={setSecondImagePreview}
+            setFirstImageWidth={setFirstImageWidth}
+            setSecondImageWidth={setSecondImageWidth}
+            firstImageWidth={firstImageWidth}
+            secondImageWidth={secondImageWidth}
+          />
           <DownloadGridButton
+            squareSize={squareSize}
+            firstImageWidth={firstImageWidth}
+            secondImageWidth={secondImageWidth}
             grid={{
               values: gridValues,
               columns,
@@ -62,26 +83,38 @@ export default function Landing() {
             }}
           />
           <UploadGridButton
+            setSquareSize={setSquareSize}
+            setFirstImageWidth={setFirstImageWidth}
+            setSecondImageWidth={setSecondImageWidth}
             setGridValues={setGridValues}
             setColumns={setColumns}
             setRows={setRows}
           />
         </div>
-        <TejidoGrid
-          setGridValues={setGridValues}
-          grid={{
-            values: gridValues,
-            columns,
-            rows,
-          }}
-        />
-        <TejidoPreview
-          firstImage={firstImage}
-          secondImage={secondImage}
-          gridValues={gridValues}
-          columns={columns}
-          rows={rows}
-        />
+        <div className="tejido-preview-container">
+          <TejidoGrid
+            firstImage={firstImage}
+            secondImage={secondImage}
+            firstImageWidth={firstImageWidth}
+            secondImageWidth={secondImageWidth}
+            firstImagePreview={firstImagePreview}
+            secondImagePreview={secondImagePreview}
+            setGridValues={setGridValues}
+            squareSize={squareSize}
+            grid={{
+              values: gridValues,
+              columns,
+              rows,
+            }}
+          />
+          <TejidoPreview
+            firstImage={firstImage}
+            secondImage={secondImage}
+            gridValues={gridValues}
+            columns={columns}
+            rows={rows}
+          />
+        </div>
       </div>
     </div>
   )

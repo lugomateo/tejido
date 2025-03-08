@@ -2,10 +2,12 @@
 @import "./columns-input.css";
 @import "./download-button.css";
 @import "./fonts.css";
+@import "./image-controls.css";
 @import "./landing.css";
 @import "./pattern-input.css";
 @import "./rows-input.css";
 @import "./tejido-grid.css";
+@import "./tejido-preview.css";
 @import "./upload-button.css";
 
 :root {

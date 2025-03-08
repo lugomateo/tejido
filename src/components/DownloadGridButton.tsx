@@ -1,4 +1,7 @@
 interface DownloadGridButtonProps {
+  squareSize: number
+  firstImageWidth: number
+  secondImageWidth: number
   grid: {
     values: number[][]
     columns: number
@@ -8,13 +11,24 @@ interface DownloadGridButtonProps {
 }
 
 export default function DownloadGridButton({
+  squareSize,
+  firstImageWidth,
+  secondImageWidth,
   grid,
   filename = "tejido-grid.json",
 }: DownloadGridButtonProps) {
   const handleDownload = () => {
     // Convert the grid object to a JSON string
-    const gridJSON = JSON.stringify(grid, null, 2)
-
+    const gridJSON = JSON.stringify(
+      {
+        ...grid,
+        squareSize,
+        firstImageWidth,
+        secondImageWidth,
+      },
+      null,
+      2
+    )
     // Create a blob with the JSON data
     const blob = new Blob([gridJSON], { type: "application/json" })
 

@@ -1,8 +1,12 @@
 export default function PatternInput({
+  squareSize,
+  setSquareSize,
   setGridValues,
   columns,
   rows,
 }: {
+  squareSize: number
+  setSquareSize: (squareSize: number) => void
   setGridValues: (gridValues: number[][]) => void
   columns: number
   rows: number
@@ -35,6 +39,10 @@ export default function PatternInput({
     setGridValues(random)
   }
 
+  const handleSquareSize = () => {
+    setSquareSize(squareSize + 1)
+  }
+
   return (
     <div className="pattern-input-container">
       <button onClick={handleCheckerboard} className="pattern-button">
@@ -42,6 +50,9 @@ export default function PatternInput({
       </button>
       <button onClick={handleRandom} className="pattern-button">
         Random
+      </button>
+      <button onClick={handleSquareSize} className="pattern-button">
+        Square Size
       </button>
     </div>
   )
