@@ -1,11 +1,10 @@
 export default function PatternInput({
-  squareSize,
-  setSquareSize,
+  gridValues,
   setGridValues,
   columns,
   rows,
 }: {
-  squareSize: number
+  gridValues: number[][]
   setSquareSize: (squareSize: number) => void
   setGridValues: (gridValues: number[][]) => void
   columns: number
@@ -39,8 +38,10 @@ export default function PatternInput({
     setGridValues(random)
   }
 
-  const handleSquareSize = () => {
-    setSquareSize(squareSize + 1)
+  const handleInvert = () => {
+    setGridValues(
+      gridValues.map((row) => row.map((cell) => (cell === 0 ? 1 : 0)))
+    )
   }
 
   return (
@@ -51,8 +52,8 @@ export default function PatternInput({
       <button onClick={handleRandom} className="pattern-button">
         Random
       </button>
-      <button onClick={handleSquareSize} className="pattern-button">
-        Square Size
+      <button onClick={handleInvert} className="pattern-button">
+        Invert
       </button>
     </div>
   )

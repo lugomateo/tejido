@@ -9,6 +9,8 @@ import gridData from "../../default-grid.json"
 import TejidoPreview from "../components/TejidoPreview"
 import UploadImageButton from "../components/UploadImageButton"
 import ImageControls from "../components/ImageControls"
+import SquareSize from "../components/SquareSize"
+import DownloadImageButton from "../components/DownloadImageButton"
 
 export default function Landing() {
   const [gridValues, setGridValues] = useState(gridData.values)
@@ -16,6 +18,7 @@ export default function Landing() {
   const [rows, setRows] = useState(gridData.rows)
   const [firstImage, setFirstImage] = useState("")
   const [secondImage, setSecondImage] = useState("")
+  const [previewImage, setPreviewImage] = useState("")
   const [firstImagePreview, setFirstImagePreview] = useState(true)
   const [secondImagePreview, setSecondImagePreview] = useState(true)
   const [firstImageWidth, setFirstImageWidth] = useState(512)
@@ -51,9 +54,10 @@ export default function Landing() {
         <div className="input-container">
           <ColumnsInput columns={columns} setColumns={setColumns} />
           <RowsInput rows={rows} setRows={setRows} />
+          <SquareSize squareSize={squareSize} setSquareSize={setSquareSize} />
           <PatternInput
+            gridValues={gridValues}
             setGridValues={setGridValues}
-            squareSize={squareSize}
             setSquareSize={setSquareSize}
             columns={columns}
             rows={rows}
@@ -90,6 +94,7 @@ export default function Landing() {
             setColumns={setColumns}
             setRows={setRows}
           />
+          <DownloadImageButton previewImage={previewImage} />
         </div>
         <div className="tejido-preview-container">
           <TejidoGrid
@@ -108,11 +113,16 @@ export default function Landing() {
             }}
           />
           <TejidoPreview
-            firstImage={firstImage}
-            secondImage={secondImage}
-            gridValues={gridValues}
             columns={columns}
+            firstImage={firstImage}
+            firstImageWidth={firstImageWidth}
+            gridValues={gridValues}
+            previewImage={previewImage}
             rows={rows}
+            secondImage={secondImage}
+            secondImageWidth={secondImageWidth}
+            setPreviewImage={setPreviewImage}
+            squareSize={squareSize}
           />
         </div>
       </div>
