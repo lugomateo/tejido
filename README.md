@@ -1,4 +1,4 @@
-# TEJIDO
+# Tejido
 
 ### A custom-built tool designed for Barcelona-based visual artist Alejandro Beltrán ([@blancodeorilla](https://www.instagram.com/blancodeorilla/))
 
@@ -14,3 +14,5 @@ Woven from these two separate images:
   <img src="src/assets/images/source_1.png" alt="first image" width="45%">
   <img src="src/assets/images/source_2.png" alt="second image" width="45%">
 </div>
+
+## [checkout tejido live](https://tejido.vercel.app/)
