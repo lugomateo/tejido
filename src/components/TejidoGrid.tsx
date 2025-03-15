@@ -6,6 +6,7 @@ interface TejidoGridProps {
   firstImagePreview: boolean
   secondImagePreview: boolean
   squareSize: number
+  showBorders: boolean
   grid: {
     values: number[][]
     columns: number
@@ -23,6 +24,7 @@ export default function TejidoGrid({
   secondImagePreview,
   squareSize,
   grid,
+  showBorders,
   setGridValues,
 }: TejidoGridProps) {
   const handleCellClick = (rowIndex: number, colIndex: number) => {
@@ -46,7 +48,9 @@ export default function TejidoGrid({
             {row.map((value, colIndex) => (
               <div
                 key={colIndex}
-                className={`cell ${value ? "active" : ""}`}
+                className={`cell ${value ? "active" : ""} ${
+                  showBorders ? "border" : ""
+                }`}
                 style={{
                   width: `${squareSize}px`,
                   height: `${squareSize}px`,

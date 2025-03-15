@@ -11,6 +11,7 @@ import UploadImageButton from "../components/UploadImageButton"
 import ImageControls from "../components/ImageControls"
 import SquareSize from "../components/SquareSize"
 import DownloadImageButton from "../components/DownloadImageButton"
+import ShowBorders from "../components/ShowBorders"
 
 export default function Landing() {
   const [gridValues, setGridValues] = useState(gridData.values)
@@ -24,6 +25,7 @@ export default function Landing() {
   const [firstImageWidth, setFirstImageWidth] = useState(512)
   const [secondImageWidth, setSecondImageWidth] = useState(512)
   const [squareSize, setSquareSize] = useState(16)
+  const [showBorders, setShowBorders] = useState(false)
 
   useEffect(() => {
     setGridValues((currentGridValues) => {
@@ -55,6 +57,10 @@ export default function Landing() {
           <ColumnsInput columns={columns} setColumns={setColumns} />
           <RowsInput rows={rows} setRows={setRows} />
           <SquareSize squareSize={squareSize} setSquareSize={setSquareSize} />
+          <ShowBorders
+            showBorders={showBorders}
+            setShowBorders={setShowBorders}
+          />
           <PatternInput
             gridValues={gridValues}
             setGridValues={setGridValues}
@@ -98,6 +104,7 @@ export default function Landing() {
         </div>
         <div className="tejido-preview-container">
           <TejidoGrid
+            showBorders={showBorders}
             firstImage={firstImage}
             secondImage={secondImage}
             firstImageWidth={firstImageWidth}
