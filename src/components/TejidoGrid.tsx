@@ -34,7 +34,7 @@ export default function TejidoGrid() {
         }}
       >
         {grid.values.map((row, rowIndex) => (
-          <div key={rowIndex} className="row" style={{ display: "flex" }}>
+          <div key={rowIndex} className="row">
             {row.map((value, colIndex) => {
               const bgPositionX = -(colIndex * squareSize)
               const bgPositionY = -(rowIndex * squareSize)
