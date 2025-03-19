@@ -1,10 +1,8 @@
-export default function SquareSize({
-  squareSize,
-  setSquareSize,
-}: {
-  squareSize: number
-  setSquareSize: (squareSize: number) => void
-}) {
+import { useTejido } from "../hooks/useTejido"
+
+export default function SquareSize() {
+  const { squareSize, setSquareSize } = useTejido()
+
   return (
     <div className="square-size-input-container">
       <label className="square-size-input-label" htmlFor="square-size">

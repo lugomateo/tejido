@@ -1,10 +1,8 @@
-export default function ShowBorders({
-  showBorders,
-  setShowBorders,
-}: {
-  showBorders: boolean
-  setShowBorders: (showBorders: boolean) => void
-}) {
+import { useTejido } from "../hooks/useTejido"
+
+export default function ShowBorders() {
+  const { showBorders, setShowBorders } = useTejido()
+
   return (
     <div>
       <button

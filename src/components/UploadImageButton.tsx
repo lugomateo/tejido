@@ -1,10 +1,8 @@
-export default function UploadImageButton({
-  setFirstImage,
-  setSecondImage,
-}: {
-  setFirstImage: (image: string) => void
-  setSecondImage: (image: string) => void
-}) {
+import { useTejido } from "../hooks/useTejido"
+
+export default function UploadImageButton() {
+  const { setFirstImage, setSecondImage } = useTejido()
+
   return (
     <div className="upload-button">
       <label htmlFor="upload-image" className="upload-button__label">

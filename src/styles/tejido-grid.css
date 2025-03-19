@@ -3,8 +3,9 @@
 }
 
 .tejido-grid__container {
-  gap: 0;
   background-color: #f0f0f0;
+  width: 100%;
+  height: 100%;
 }
 
 .row {
@@ -17,21 +18,18 @@
 .cell {
   width: 16px;
   height: 16px;
-  background-color: #f0f0f0;
+  z-index: 100;
   box-sizing: border-box;
+  background-position: center;
 }
-
 .cell.active {
-  background-color: #000;
   box-sizing: border-box;
+  z-index: 200;
+  background-position: center;
 }
 
 .cell.border {
-  border: 0.5px solid black;
-}
-
-.cell.border.active {
-  border: 0.5px solid white;
+  border: 0.5px solid rgb(0, 170, 255);
 }
 
 .tejido-grid__image-container {

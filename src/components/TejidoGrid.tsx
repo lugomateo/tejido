@@ -1,32 +1,16 @@
-interface TejidoGridProps {
-  firstImage: string
-  secondImage: string
-  firstImageWidth: number
-  secondImageWidth: number
-  firstImagePreview: boolean
-  secondImagePreview: boolean
-  squareSize: number
-  showBorders: boolean
-  grid: {
-    values: number[][]
-    columns: number
-    rows: number
-  }
-  setGridValues: (values: number[][]) => void
-}
+import { useTejido } from "../hooks/useTejido"
 
-export default function TejidoGrid({
-  firstImage,
-  secondImage,
-  firstImageWidth,
-  secondImageWidth,
-  firstImagePreview,
-  secondImagePreview,
-  squareSize,
-  grid,
-  showBorders,
-  setGridValues,
-}: TejidoGridProps) {
+export default function TejidoGrid() {
+  const {
+    firstImage,
+    secondImage,
+    squareSize,
+    grid,
+    showBorders,
+    setGridValues,
+    gridContainerRef,
+  } = useTejido()
+
   const handleCellClick = (rowIndex: number, colIndex: number) => {
     const newGridValues = [...grid.values]
     newGridValues[rowIndex][colIndex] =
@@ -34,53 +18,54 @@ export default function TejidoGrid({
     setGridValues(newGridValues)
   }
 
+  const containerWidth = grid.columns * squareSize
+  const containerHeight = grid.rows * squareSize
+
   return (
     <div className="tejido__container">
       <div
+        ref={gridContainerRef}
         className="tejido-grid__container"
         style={{
           display: "grid",
           gridTemplateRows: `repeat(${grid.rows}, 1fr)`,
+          width: `${containerWidth}px`,
+          height: `${containerHeight}px`,
         }}
       >
         {grid.values.map((row, rowIndex) => (
-          <div key={rowIndex} className="row">
-            {row.map((value, colIndex) => (
-              <div
-                key={colIndex}
-                className={`cell ${value ? "active" : ""} ${
-                  showBorders ? "border" : ""
-                }`}
-                style={{
-                  width: `${squareSize}px`,
-                  height: `${squareSize}px`,
-                }}
-                onClick={() => handleCellClick(rowIndex, colIndex)}
-              ></div>
-            ))}
+          <div key={rowIndex} className="row" style={{ display: "flex" }}>
+            {row.map((value, colIndex) => {
+              const bgPositionX = -(colIndex * squareSize)
+              const bgPositionY = -(rowIndex * squareSize)
+
+              return (
+                <div
+                  key={colIndex}
+                  className={`cell ${value ? "active" : ""} ${
+                    showBorders ? "border" : ""
+                  }`}
+                  style={{
+                    width: `${squareSize}px`,
+                    height: `${squareSize}px`,
+                    backgroundColor: value ? "black" : "white",
+                    backgroundImage: value
+                      ? secondImage !== ""
+                        ? `url(${secondImage})`
+                        : "none"
+                      : firstImage !== ""
+                      ? `url(${firstImage})`
+                      : "none",
+                    backgroundSize: `${containerWidth}px ${containerHeight}px`,
+                    backgroundPosition: `${bgPositionX}px ${bgPositionY}px`,
+                  }}
+                  onClick={() => handleCellClick(rowIndex, colIndex)}
+                ></div>
+              )
+            })}
           </div>
         ))}
       </div>
-      {firstImagePreview && (
-        <div
-          className="tejido-grid__image-container"
-          style={{
-            width: `${firstImageWidth}px`,
-          }}
-        >
-          {firstImage !== "" && <img src={firstImage} alt="First Image" />}
-        </div>
-      )}
-      {secondImagePreview && (
-        <div
-          className="tejido-grid__image-container"
-          style={{
-            width: `${secondImageWidth}px`,
-          }}
-        >
-          {secondImage !== "" && <img src={secondImage} alt="Second Image" />}
-        </div>
-      )}
     </div>
   )
 }

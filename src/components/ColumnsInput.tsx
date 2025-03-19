@@ -1,10 +1,8 @@
-export default function ColumnsInput({
-  columns,
-  setColumns,
-}: {
-  columns: number
-  setColumns: (columns: number) => void
-}) {
+import { useTejido } from "../hooks/useTejido"
+
+export default function ColumnsInput() {
+  const { columns, setColumns } = useTejido()
+
   return (
     <div className="columns-input-container">
       <label className="columns-input-label" htmlFor="columns">

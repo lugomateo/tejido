@@ -1,15 +1,8 @@
-export default function PatternInput({
-  gridValues,
-  setGridValues,
-  columns,
-  rows,
-}: {
-  gridValues: number[][]
-  setSquareSize: (squareSize: number) => void
-  setGridValues: (gridValues: number[][]) => void
-  columns: number
-  rows: number
-}) {
+import { useTejido } from "../hooks/useTejido"
+
+export default function PatternInput() {
+  const { gridValues, setGridValues, columns, rows } = useTejido()
+
   const handleCheckerboard = () => {
     const checkerboard = Array(rows)
       .fill(0)

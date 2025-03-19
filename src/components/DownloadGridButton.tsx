@@ -1,30 +1,14 @@
-interface DownloadGridButtonProps {
-  squareSize: number
-  firstImageWidth: number
-  secondImageWidth: number
-  grid: {
-    values: number[][]
-    columns: number
-    rows: number
-  }
-  filename?: string
-}
+import { useTejido } from "../hooks/useTejido"
 
-export default function DownloadGridButton({
-  squareSize,
-  firstImageWidth,
-  secondImageWidth,
-  grid,
-  filename = "tejido-grid.json",
-}: DownloadGridButtonProps) {
+export default function DownloadGridButton() {
+  const { squareSize, grid } = useTejido()
+
   const handleDownload = () => {
     // Convert the grid object to a JSON string
     const gridJSON = JSON.stringify(
       {
         ...grid,
         squareSize,
-        firstImageWidth,
-        secondImageWidth,
       },
       null,
       2
@@ -38,7 +22,7 @@ export default function DownloadGridButton({
     // Create a temporary anchor element
     const a = document.createElement("a")
     a.href = url
-    a.download = filename
+    a.download = "tejido-grid.json"
 
     // Trigger the download
     document.body.appendChild(a)

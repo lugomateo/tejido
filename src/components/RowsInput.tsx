@@ -1,10 +1,8 @@
-export default function RowsInput({
-  rows,
-  setRows,
-}: {
-  rows: number
-  setRows: (rows: number) => void
-}) {
+import { useTejido } from "../hooks/useTejido"
+
+export default function RowsInput() {
+  const { rows, setRows } = useTejido()
+
   return (
     <div className="rows-input-container">
       <label className="rows-input-label" htmlFor="rows">
