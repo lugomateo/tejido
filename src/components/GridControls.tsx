@@ -2,7 +2,7 @@ import ColumnsCounter from "./ColumnsCounter"
 import DownloadGridButton from "./DownloadGridButton"
 import PatternEffects from "./PatternEffects"
 import RowsCounter from "./RowsCounter"
-import ShowBorders from "./ShowBorders"
+import BordersToggle from "./BordersToggle"
 import SquareSizeCounter from "./SquareSizeCounter"
 import UploadGridButton from "./UploadGridButton"
 
@@ -14,7 +14,7 @@ export default function GridControls() {
       <RowsCounter />
       <SquareSizeCounter />
       <PatternEffects />
-      <ShowBorders />
+      <BordersToggle />
       <DownloadGridButton />
       <UploadGridButton />
     </div>

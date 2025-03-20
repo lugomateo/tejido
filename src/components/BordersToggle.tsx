@@ -1,15 +1,15 @@
 import { useTejido } from "../hooks/useTejido"
 
-export default function ShowBorders() {
+export default function BordersToggle() {
   const { showBorders, setShowBorders } = useTejido()
 
   return (
     <div>
       <button
-        className="image-controls__button"
+        className={`toggle-button ${showBorders ? "active" : ""}`}
         onClick={() => setShowBorders(!showBorders)}
       >
-        {showBorders ? "Hide" : "Show"} Borders
+        {showBorders ? "hide" : "show"} borders
       </button>
     </div>
   )

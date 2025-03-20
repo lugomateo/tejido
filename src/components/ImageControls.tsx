@@ -3,7 +3,8 @@ import UploadImageButton from "./UploadImageButton"
 
 export default function ImageControls() {
   return (
-    <div>
+    <div className="image-controls-container">
+      <span className="image-controls-label">image controls</span>
       <UploadImageButton />
       <DownloadImageButton />
     </div>
