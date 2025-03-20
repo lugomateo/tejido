@@ -1,16 +1,16 @@
 import { useTejido } from "../hooks/useTejido"
 
-export default function ColumnsInput() {
+export default function ColumnsCounter() {
   const { columns, setColumns } = useTejido()
 
   return (
-    <div className="columns-input-container">
-      <label className="columns-input-label" htmlFor="columns">
-        Columns
+    <div className="counter-container">
+      <label className="counter-label" htmlFor="columns">
+        columns
       </label>
-      <div className="columns-input-buttons-container">
+      <div className="counter-buttons-container">
         <button
-          className="columns-minus-button"
+          className="counter-minus-button"
           onClick={() => {
             if (columns > 1) {
               setColumns(columns - 1)
@@ -19,9 +19,9 @@ export default function ColumnsInput() {
         >
           -
         </button>
-        <div className="columns-value">{columns}</div>
+        <div className="counter-value">{columns}</div>
         <button
-          className="columns-plus-button"
+          className="counter-plus-button"
           onClick={() => setColumns(columns + 1)}
         >
           +

@@ -1,16 +1,16 @@
 import { useTejido } from "../hooks/useTejido"
 
-export default function SquareSize() {
+export default function SquareSizeCounter() {
   const { squareSize, setSquareSize } = useTejido()
 
   return (
-    <div className="square-size-input-container">
-      <label className="square-size-input-label" htmlFor="square-size">
-        Square Size
+    <div className="counter-container">
+      <label className="counter-label" htmlFor="square-size">
+        square size (px)
       </label>
-      <div className="square-size-input-buttons-container">
+      <div className="counter-buttons-container">
         <button
-          className="square-size-minus-button"
+          className="counter-minus-button"
           onClick={() => {
             if (squareSize > 1) {
               setSquareSize(squareSize - 1)
@@ -19,9 +19,9 @@ export default function SquareSize() {
         >
           -
         </button>
-        <div className="square-size-value">{squareSize}</div>
+        <div className="counter-value">{squareSize}</div>
         <button
-          className="square-size-plus-button"
+          className="counter-plus-button"
           onClick={() => setSquareSize(squareSize + 1)}
         >
           +

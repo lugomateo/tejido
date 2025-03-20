@@ -1,0 +1,65 @@
+.counter-container {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.counter-buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-label {
+  font-size: 0.75rem;
+  margin-right: 0.5rem;
+}
+
+.counter-minus-button {
+  font-size: 0.75rem;
+  background-color: #000;
+  color: #fff;
+  border-top: 1px solid rgb(195, 195, 195);
+  border-left: 1px solid rgb(195, 195, 195);
+  border-bottom: 1px solid rgb(195, 195, 195);
+  border-right: 0px solid rgb(195, 195, 195);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-value {
+  font-size: 0.75rem;
+  line-height: 0;
+  background-color: #000;
+  color: #fff;
+  border-top: 1px solid rgb(195, 195, 195);
+  border-bottom: 1px solid rgb(195, 195, 195);
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-plus-button {
+  font-size: 0.75rem;
+  background-color: #000;
+  color: #fff;
+  border-top: 1px solid rgb(195, 195, 195);
+  border-left: 0px solid rgb(195, 195, 195);
+  border-bottom: 1px solid rgb(195, 195, 195);
+  border-right: 1px solid rgb(195, 195, 195);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

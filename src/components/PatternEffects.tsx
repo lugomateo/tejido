@@ -1,6 +1,6 @@
 import { useTejido } from "../hooks/useTejido"
 
-export default function PatternInput() {
+export default function PatternEffects() {
   const { gridValues, setGridValues, columns, rows } = useTejido()
 
   const handleCheckerboard = () => {
@@ -38,7 +38,7 @@ export default function PatternInput() {
   }
 
   return (
-    <div className="pattern-input-container">
+    <div className="pattern-effects-container">
       <button onClick={handleCheckerboard} className="pattern-button">
         Checkerboard
       </button>
